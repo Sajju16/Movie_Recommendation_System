@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "movie-recom"
+version = "0.1.0"
+description = "Movie recommender using MovieLens dataset"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas",
+  "scikit-learn",
+  "implicit",
+  "scipy",
+  "flask",
+  "joblib",
+  "requests",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+movie-recom-server = "movie_recom.server:main"
+movie-recom-make-user-item = "movie_recom.create_user_item:main"
